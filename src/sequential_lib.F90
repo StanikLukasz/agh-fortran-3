@@ -26,7 +26,7 @@ module sequiential_lib
   !> @param[out] X Result matrix
   !> @param[out] status Status, 0 = success
   !------------------------------------------------------------------------------
-     subroutine mult (A, B, X, status)
+     subroutine mult_seq (A, B, X, status)
         implicit none
         
         ! variables
@@ -69,7 +69,39 @@ module sequiential_lib
 
         status = 0
         
-    end subroutine mult
+     end subroutine mult_seq
     
-end module matrixMath
+ !------------------------------------------------------------------------------
+  !> @author
+  !> Lukasz Stanik
+  !
+  ! DESCRIPTION: 
+  !> `mult` version with explicit sizes of matrices.
+  !> Needed for use in python code.
+  !> Accepts only square matrices.
+  !>
+  !> @param[in] A First matrix
+  !> @param[in] B Second matrix
+  !> @param[out] X Result matrix
+  !> @param[out] status Status, 0 = success
+  !> @param[in] size Size of the square matrices
+  !------------------------------------------------------------------------------
+  subroutine mult_seq_explicit(A, B, X, status, size)
+    implicit none
+   
+    ! variables
+    integer ( kind = 4), intent(in) :: size
+    real ( kind = 8), intent(in) :: A(size,size)
+    real ( kind = 8), intent(in) :: B(size,size)
+    real ( kind = 8), intent(out) :: X(size,size)
+    integer ( kind = 4), intent(out) :: status
+
+    ! calling a mult_seq subroutine
+    call mult_seq(A, B, X, status)
+ 
+  end subroutine mult_seq_explicit
+
+end module sequiential_lib
+    
+    
         
