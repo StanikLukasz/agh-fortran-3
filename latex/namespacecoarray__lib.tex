@@ -1,0 +1,47 @@
+\hypertarget{namespacecoarray__lib}{}\section{coarray\+\_\+lib Module Reference}
+\label{namespacecoarray__lib}\index{coarray\+\_\+lib@{coarray\+\_\+lib}}
+
+
+The module provides implementations of some mathematical functions using coarray.  
+
+
+\subsection*{Functions/\+Subroutines}
+\begin{DoxyCompactItemize}
+\item 
+subroutine \mbox{\hyperlink{namespacecoarray__lib_a834d78e243124fb4b218d9e17e71c033}{mult\+\_\+coarr}} (A, B, X, status)
+\begin{DoxyCompactList}\small\item\em Multiplies two matrices and returns result in the {\ttfamily X} param. Works with coarray to boost computings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The module provides implementations of some mathematical functions using coarray. 
+
+\begin{DoxyAuthor}{Author}
+Lukasz Stanik 
+\end{DoxyAuthor}
+
+
+\subsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacecoarray__lib_a834d78e243124fb4b218d9e17e71c033}\label{namespacecoarray__lib_a834d78e243124fb4b218d9e17e71c033}} 
+\index{coarray\+\_\+lib@{coarray\+\_\+lib}!mult\+\_\+coarr@{mult\+\_\+coarr}}
+\index{mult\+\_\+coarr@{mult\+\_\+coarr}!coarray\+\_\+lib@{coarray\+\_\+lib}}
+\subsubsection{\texorpdfstring{mult\+\_\+coarr()}{mult\_coarr()}}
+{\footnotesize\ttfamily subroutine coarray\+\_\+lib\+::mult\+\_\+coarr (\begin{DoxyParamCaption}\item[{real (kind = 8), dimension(\+:,\+:), intent(in)}]{A,  }\item[{real (kind = 8), dimension(\+:,\+:), intent(in)}]{B,  }\item[{real (kind = 8), dimension(\+:,\+:), intent(out)}]{X,  }\item[{integer (kind = 4), intent(out)}]{status }\end{DoxyParamCaption})}
+
+
+
+Multiplies two matrices and returns result in the {\ttfamily X} param. Works with coarray to boost computings. 
+
+\begin{DoxyAuthor}{Author}
+Lukasz Stanik
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em A} & First matrix \\
+\hline
+\mbox{\tt in}  & {\em B} & Second matrix \\
+\hline
+\mbox{\tt out}  & {\em X} & Result matrix \\
+\hline
+\mbox{\tt out}  & {\em status} & Status, 0 = success \\
+\hline
+\end{DoxyParams}

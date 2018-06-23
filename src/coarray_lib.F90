@@ -39,18 +39,17 @@ module coarray_lib
         real (kind = 8), codimension[:], dimension(:,:), allocatable :: buffer
         integer (kind = 4) :: width, image
         integer (kind = 4), codimension[:], allocatable :: first_row, last_row
-        
-        allocate(first_row[*])
-        allocate( last_row[*])
-        
+            
         integer (kind = 4), intent(out) :: status
         integer (kind = 4) :: Ar, Ac, Br, Bc, Xr, Xc
         integer (kind = 4) :: i, j, k
         
-        
-        ! checking dimensions condition
         logical :: dim_condition
         
+        allocate(first_row[*])
+        allocate( last_row[*])
+
+        ! checking dimensions condition
         Ar = size(A(:,1))
         Ac = size(A(1,:))
         Br = size(B(:,1))
@@ -61,7 +60,7 @@ module coarray_lib
         ! initializing coarray variables
         allocate(buffer(width, Bc)[*])
         
-        width = CEILING(real(Ar))/NUM_IMAGES())
+        width = CEILING(real(Ar)/NUM_IMAGES())
         first_row = MIN(Ar, (THIS_IMAGE() - 1) * width) + 1
         last_row = MIN(Ar, THIS_IMAGE() * width)
         
@@ -74,7 +73,7 @@ module coarray_lib
         end if
         
         ! multiplying itself     
-        do i = first_row, second_row
+        do i = first_row, last_row
             do j = 1, Xc         
                     X(i,j) = 0.d0
                     do k = 1, Ac
@@ -88,7 +87,7 @@ module coarray_lib
         ! getting results together
         if (THIS_IMAGE() .EQ. 1) then
             do image = 1, NUM_IMAGES()
-                X(first_row[image]:last_row[image],:) = buffer(1:(last_row[image] - first_row[image] + 1,:)[image]
+                X(first_row[image]:last_row[image],:) = buffer(1:(last_row[image] - first_row[image] + 1),:)[image]
             end do
         end if
         
@@ -98,4 +97,6 @@ module coarray_lib
         
         status = 0
         
-     end subroutine mult_coarr
+    end subroutine mult_coarr
+    
+end module coarray_lib

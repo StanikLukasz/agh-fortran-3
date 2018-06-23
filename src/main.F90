@@ -1,0 +1,45 @@
+program main
+    use sequiential_lib
+    use coarray_lib
+    implicit none
+    
+    ! variables
+    integer (kind = 4) :: status, N
+    real (kind = 8), dimension(:,:), allocatable :: A, B, X
+    real (kind = 16) :: before, after ! for time measuring
+    character (len=16) :: arg ! for getting from command line
+    
+    ! getting argument - size of matrices
+    call GET_COMMAND_ARGUMENT(1, arg)
+    read(arg, *) N
+    
+    ! preparing matrices
+    allocate(A(N,N))
+    allocate(B(N,N))
+    allocate(X(N,N))
+    
+    A = 1.6d0
+    B = 4.2d0
+    
+    ! opening log file
+    if (THIS_IMAGE() .EQ. 1) then
+        open (unit=19, file="results.txt", position="append", &
+            form="formatted", action="write")
+    end if
+    
+    !!! getting times
+    
+    ! SEQUENTIAL - multiplying
+    if (THIS_IMAGE() .EQ. 1) then
+        call CPU_TIME(before)
+        call mult_seq(A,B,X,status)
+        call CPU_TIME(after)
+        
+        write(19,*)"mult_seq:", N, (after-before)
+    end if
+
+end program main
+    
+    
+    
+    

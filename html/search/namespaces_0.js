@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sequiential_5flib',['sequiential_lib',['../namespacesequiential__lib.html',1,'']]]
+  ['coarray_5flib',['coarray_lib',['../namespacecoarray__lib.html',1,'']]]
 ];
