@@ -99,4 +99,58 @@ module coarray_lib
         
     end subroutine mult_coarr
     
+  !------------------------------------------------------------------------------
+  !> @author
+  !> Lukasz Stanik
+  !
+  ! DESCRIPTION: 
+  !> Provides a gauss elimination mechanism.
+  !> Works with coarray to boost computings.
+  !
+  !> @param[in] A First matrix
+  !> @param[in] B Second matrix
+  !> @param[out] X Result matrix
+  !> @param[out] status Status, 0 = success
+  !------------------------------------------------------------------------------
+    subroutine gauss_coarr (A, X, N)
+        implicit none
+        
+        
+        ! variables
+        integer (kind = 8), intent(in) :: N
+        real (kind = 8), intent(inout) :: A(N,N), X(N)
+        real (kind = 8), codimension[:], allocatable :: cA(:,:), cX(:)
+        
+        integer (kind = 8) :: I, J
+        real (kind = 8) :: C
+        
+        allocate(cA(N,N)[*])
+        allocate(cX(N)[*])
+
+        if (THIS_IMAGE() .EQ. 1) then
+            cA(:,:)[1] = A(:,:)
+            cX(:)[1] = X(:)
+        end if
+        
+        
+        ! algorithm
+        do I = 1,N
+            do J = THIS_IMAGE()-1, N, NUM_IMAGES()
+                if (I .NE. J) then
+                    C = cA(I, J+1) / cA(I, I+1)
+                    cA(:, J+1) = cA(:, J+1) - C*cA(:,I+1)
+                    cX(J+1) = cX(J+1) - C*cX(I+1)
+                end if
+            end do
+        end do
+        
+        ! getting results together
+        if (THIS_IMAGE() .EQ. 1) then
+            A(:,:) = cA(:,:)[1]
+            X(:) = cX(:)[1]
+        end if
+        
+    end subroutine gauss_coarr
+    
+    
 end module coarray_lib

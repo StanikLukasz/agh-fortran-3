@@ -22,10 +22,10 @@ program main
     B = 4.2d0
     
     ! opening log file
-!    if (THIS_IMAGE() .EQ. 1) then
-!        open (unit=19, file="results.txt", position="append", &
-!            form="formatted", action="write")
-!    end if
+    if (THIS_IMAGE() .EQ. 1) then
+        open (unit=19, file="results.txt", position="append", &
+            form="formatted", action="write")
+    end if
     
     !!! getting times
     
@@ -35,8 +35,7 @@ program main
         call mult_seq(A,B,X,status)
         call CPU_TIME(after)
         
-!        write(19,*)"mult_seq:   ", NUM_IMAGES(), N, (after-before)
-        write(*,*)"mult_seq:   ", NUM_IMAGES(), N, (after-before)
+        write(19,*)"mult_seq:   ", NUM_IMAGES(), N, (after-before)
     end if
     
     syncall()
@@ -47,8 +46,7 @@ program main
     call CPU_TIME(after)
     
     if (THIS_IMAGE() .EQ. 1) then
-!        write(19,*)"mult_coarr: ", NUM_IMAGES(), N, (after-before)
-     !   write(*,*)"mult_coarr: ", NUM_IMAGES(), N, (after-before)
+        write(19,*)"mult_coarr: ", NUM_IMAGES(), N, (after-before)
     end if
     
     syncall()
@@ -56,14 +54,14 @@ program main
     ! SEQUENTIAL - Gauss elimination
     if (THIS_IMAGE() .EQ. 1) then
         call CPU_TIME(before)
-        !call gauss_seq(A,B(1,:),N-1)
+        call gauss_seq(A,B(1,:),N-1)
         call CPU_TIME(after)
         
-!        write(19,*)"gauss_seq:  ", NUM_IMAGES(), N, (after-before)
-      !  write(*,*)"mult_coarr: ", NUM_IMAGES(), N, (after-before)
+        write(19,*)"gauss_seq:  ", NUM_IMAGES(), N, (after-before)
     end if
     
     syncall()
+    
     
     
     
