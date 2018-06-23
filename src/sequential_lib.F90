@@ -2,7 +2,7 @@
 ! MODULE: sequential_lib
 !
 !> @author
-!> £ukasz Stanik
+!> Lukasz Stanik
 !
 ! DESCRIPTION: 
 !> The module provides sequential implementations
@@ -16,7 +16,7 @@ module sequiential_lib
     contains
   !------------------------------------------------------------------------------
   !> @author
-  !> £ukasz Stanik
+  !> Lukasz Stanik
   !
   ! DESCRIPTION: 
   !> Multiplies two matrices and returns result in the `X` param.
