@@ -73,22 +73,73 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:aeeea541c60c4dc60451254f261445a86"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesequiential__lib.html#aeeea541c60c4dc60451254f261445a86">mult</a> (A, B, X, status)</td></tr>
-<tr class="memdesc:aeeea541c60c4dc60451254f261445a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies two matrices and returns result in the <code>X</code> param.  <a href="#aeeea541c60c4dc60451254f261445a86">More...</a><br /></td></tr>
-<tr class="separator:aeeea541c60c4dc60451254f261445a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cd53b4a73bed54417e4ca2b6964fea2"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesequiential__lib.html#a6cd53b4a73bed54417e4ca2b6964fea2">mult_seq</a> (A, B, X, status)</td></tr>
+<tr class="memdesc:a6cd53b4a73bed54417e4ca2b6964fea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies two matrices and returns result in the <code>X</code> param.  <a href="#a6cd53b4a73bed54417e4ca2b6964fea2">More...</a><br /></td></tr>
+<tr class="separator:a6cd53b4a73bed54417e4ca2b6964fea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fb67c61ed63cf2320cb5e5bada947cc"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesequiential__lib.html#a7fb67c61ed63cf2320cb5e5bada947cc">mult_seq_explicit</a> (A, B, X, status, size)</td></tr>
+<tr class="memdesc:a7fb67c61ed63cf2320cb5e5bada947cc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>mult</code> version with explicit sizes of matrices. Needed for use in python code. Accepts only square matrices.  <a href="#a7fb67c61ed63cf2320cb5e5bada947cc">More...</a><br /></td></tr>
+<tr class="separator:a7fb67c61ed63cf2320cb5e5bada947cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e5b7e29fdd4105f584465535bfdeb50"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesequiential__lib.html#a4e5b7e29fdd4105f584465535bfdeb50">gauss_seq</a> (A, X, N)</td></tr>
+<tr class="memdesc:a4e5b7e29fdd4105f584465535bfdeb50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a gauss elimination mechanism.  <a href="#a4e5b7e29fdd4105f584465535bfdeb50">More...</a><br /></td></tr>
+<tr class="separator:a4e5b7e29fdd4105f584465535bfdeb50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The module provides sequential implementations of some mathematical functions. </p>
-<dl class="section author"><dt>Author</dt><dd>£ukasz Stanik </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Lukasz Stanik </dd></dl>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="aeeea541c60c4dc60451254f261445a86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeeea541c60c4dc60451254f261445a86">&#9670;&nbsp;</a></span>mult()</h2>
+<a id="a4e5b7e29fdd4105f584465535bfdeb50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5b7e29fdd4105f584465535bfdeb50">&#9670;&nbsp;</a></span>gauss_seq()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine sequiential_lib::mult </td>
+          <td class="memname">subroutine sequiential_lib::gauss_seq </td>
+          <td>(</td>
+          <td class="paramtype">real (kind = 8), dimension(n,n), intent(inout)&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real (kind = 8), dimension(n), intent(inout)&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer (kind = 8), intent(in)&#160;</td>
+          <td class="paramname"><em>N</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Provides a gauss elimination mechanism. </p>
+<dl class="section author"><dt>Author</dt><dd>Lukasz Stanik</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">A</td><td>Matrix of coefficients </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">X</td><td>Matrix of values </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>Size of the matrices </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6cd53b4a73bed54417e4ca2b6964fea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cd53b4a73bed54417e4ca2b6964fea2">&#9670;&nbsp;</a></span>mult_seq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine sequiential_lib::mult_seq </td>
           <td>(</td>
           <td class="paramtype">real (kind = 8), dimension(:,:), intent(in)&#160;</td>
           <td class="paramname"><em>A</em>, </td>
@@ -120,13 +171,72 @@ Functions/Subroutines</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Multiplies two matrices and returns result in the <code>X</code> param. </p>
-<dl class="section author"><dt>Author</dt><dd>£ukasz Stanik</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Lukasz Stanik</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>First matrix </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>Second matrix </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">X</td><td>Result matrix </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>Status, 0 = success </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7fb67c61ed63cf2320cb5e5bada947cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fb67c61ed63cf2320cb5e5bada947cc">&#9670;&nbsp;</a></span>mult_seq_explicit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine sequiential_lib::mult_seq_explicit </td>
+          <td>(</td>
+          <td class="paramtype">real ( kind = 8), dimension(size,size), intent(in)&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real ( kind = 8), dimension(size,size), intent(in)&#160;</td>
+          <td class="paramname"><em>B</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real ( kind = 8), dimension(size,size), intent(out)&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer ( kind = 4), intent(out)&#160;</td>
+          <td class="paramname"><em>status</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer ( kind = 4), intent(in)&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><code>mult</code> version with explicit sizes of matrices. Needed for use in python code. Accepts only square matrices. </p>
+<dl class="section author"><dt>Author</dt><dd>Lukasz Stanik</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">A</td><td>First matrix </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">B</td><td>Second matrix </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">X</td><td>Result matrix </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>Status, 0 = success </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Size of the square matrices </td></tr>
   </table>
   </dd>
 </dl>

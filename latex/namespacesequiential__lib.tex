@@ -8,31 +8,57 @@ The module provides sequential implementations of some mathematical functions.
 \subsection*{Functions/\+Subroutines}
 \begin{DoxyCompactItemize}
 \item 
-subroutine \mbox{\hyperlink{namespacesequiential__lib_aeeea541c60c4dc60451254f261445a86}{mult}} (A, B, X, status)
-\begin{DoxyCompactList}\small\item\em Multiplies two matrices and returns result in the {\ttfamily X} param. \end{DoxyCompactList}\end{DoxyCompactItemize}
+subroutine \mbox{\hyperlink{namespacesequiential__lib_a6cd53b4a73bed54417e4ca2b6964fea2}{mult\+\_\+seq}} (A, B, X, status)
+\begin{DoxyCompactList}\small\item\em Multiplies two matrices and returns result in the {\ttfamily X} param. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacesequiential__lib_a7fb67c61ed63cf2320cb5e5bada947cc}{mult\+\_\+seq\+\_\+explicit}} (A, B, X, status, size)
+\begin{DoxyCompactList}\small\item\em {\ttfamily mult} version with explicit sizes of matrices. Needed for use in python code. Accepts only square matrices. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacesequiential__lib_a4e5b7e29fdd4105f584465535bfdeb50}{gauss\+\_\+seq}} (A, X, N)
+\begin{DoxyCompactList}\small\item\em Provides a gauss elimination mechanism. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 The module provides sequential implementations of some mathematical functions. 
 
 \begin{DoxyAuthor}{Author}
-£ukasz Stanik 
+Lukasz Stanik 
 \end{DoxyAuthor}
 
 
 \subsection{Function/\+Subroutine Documentation}
-\mbox{\Hypertarget{namespacesequiential__lib_aeeea541c60c4dc60451254f261445a86}\label{namespacesequiential__lib_aeeea541c60c4dc60451254f261445a86}} 
-\index{sequiential\+\_\+lib@{sequiential\+\_\+lib}!mult@{mult}}
-\index{mult@{mult}!sequiential\+\_\+lib@{sequiential\+\_\+lib}}
-\subsubsection{\texorpdfstring{mult()}{mult()}}
-{\footnotesize\ttfamily subroutine sequiential\+\_\+lib\+::mult (\begin{DoxyParamCaption}\item[{real (kind = 8), dimension(\+:,\+:), intent(in)}]{A,  }\item[{real (kind = 8), dimension(\+:,\+:), intent(in)}]{B,  }\item[{real (kind = 8), dimension(\+:,\+:), intent(out)}]{X,  }\item[{integer (kind = 4), intent(out)}]{status }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{namespacesequiential__lib_a4e5b7e29fdd4105f584465535bfdeb50}\label{namespacesequiential__lib_a4e5b7e29fdd4105f584465535bfdeb50}} 
+\index{sequiential\+\_\+lib@{sequiential\+\_\+lib}!gauss\+\_\+seq@{gauss\+\_\+seq}}
+\index{gauss\+\_\+seq@{gauss\+\_\+seq}!sequiential\+\_\+lib@{sequiential\+\_\+lib}}
+\subsubsection{\texorpdfstring{gauss\+\_\+seq()}{gauss\_seq()}}
+{\footnotesize\ttfamily subroutine sequiential\+\_\+lib\+::gauss\+\_\+seq (\begin{DoxyParamCaption}\item[{real (kind = 8), dimension(n,n), intent(inout)}]{A,  }\item[{real (kind = 8), dimension(n), intent(inout)}]{X,  }\item[{integer (kind = 8), intent(in)}]{N }\end{DoxyParamCaption})}
+
+
+
+Provides a gauss elimination mechanism. 
+
+\begin{DoxyAuthor}{Author}
+Lukasz Stanik
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em A} & Matrix of coefficients \\
+\hline
+\mbox{\tt in,out}  & {\em X} & Matrix of values \\
+\hline
+\mbox{\tt in}  & {\em N} & Size of the matrices \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacesequiential__lib_a6cd53b4a73bed54417e4ca2b6964fea2}\label{namespacesequiential__lib_a6cd53b4a73bed54417e4ca2b6964fea2}} 
+\index{sequiential\+\_\+lib@{sequiential\+\_\+lib}!mult\+\_\+seq@{mult\+\_\+seq}}
+\index{mult\+\_\+seq@{mult\+\_\+seq}!sequiential\+\_\+lib@{sequiential\+\_\+lib}}
+\subsubsection{\texorpdfstring{mult\+\_\+seq()}{mult\_seq()}}
+{\footnotesize\ttfamily subroutine sequiential\+\_\+lib\+::mult\+\_\+seq (\begin{DoxyParamCaption}\item[{real (kind = 8), dimension(\+:,\+:), intent(in)}]{A,  }\item[{real (kind = 8), dimension(\+:,\+:), intent(in)}]{B,  }\item[{real (kind = 8), dimension(\+:,\+:), intent(out)}]{X,  }\item[{integer (kind = 4), intent(out)}]{status }\end{DoxyParamCaption})}
 
 
 
 Multiplies two matrices and returns result in the {\ttfamily X} param. 
 
 \begin{DoxyAuthor}{Author}
-£ukasz Stanik
+Lukasz Stanik
 \end{DoxyAuthor}
 
 \begin{DoxyParams}[1]{Parameters}
@@ -43,5 +69,31 @@ Multiplies two matrices and returns result in the {\ttfamily X} param.
 \mbox{\tt out}  & {\em X} & Result matrix \\
 \hline
 \mbox{\tt out}  & {\em status} & Status, 0 = success \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespacesequiential__lib_a7fb67c61ed63cf2320cb5e5bada947cc}\label{namespacesequiential__lib_a7fb67c61ed63cf2320cb5e5bada947cc}} 
+\index{sequiential\+\_\+lib@{sequiential\+\_\+lib}!mult\+\_\+seq\+\_\+explicit@{mult\+\_\+seq\+\_\+explicit}}
+\index{mult\+\_\+seq\+\_\+explicit@{mult\+\_\+seq\+\_\+explicit}!sequiential\+\_\+lib@{sequiential\+\_\+lib}}
+\subsubsection{\texorpdfstring{mult\+\_\+seq\+\_\+explicit()}{mult\_seq\_explicit()}}
+{\footnotesize\ttfamily subroutine sequiential\+\_\+lib\+::mult\+\_\+seq\+\_\+explicit (\begin{DoxyParamCaption}\item[{real ( kind = 8), dimension(size,size), intent(in)}]{A,  }\item[{real ( kind = 8), dimension(size,size), intent(in)}]{B,  }\item[{real ( kind = 8), dimension(size,size), intent(out)}]{X,  }\item[{integer ( kind = 4), intent(out)}]{status,  }\item[{integer ( kind = 4), intent(in)}]{size }\end{DoxyParamCaption})}
+
+
+
+{\ttfamily mult} version with explicit sizes of matrices. Needed for use in python code. Accepts only square matrices. 
+
+\begin{DoxyAuthor}{Author}
+Lukasz Stanik
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em A} & First matrix \\
+\hline
+\mbox{\tt in}  & {\em B} & Second matrix \\
+\hline
+\mbox{\tt out}  & {\em X} & Result matrix \\
+\hline
+\mbox{\tt out}  & {\em status} & Status, 0 = success \\
+\hline
+\mbox{\tt in}  & {\em size} & Size of the square matrices \\
 \hline
 \end{DoxyParams}
