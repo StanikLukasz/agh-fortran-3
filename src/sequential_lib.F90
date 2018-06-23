@@ -1,0 +1,75 @@
+!------------------------------------------------------------------------------
+! MODULE: sequential_lib
+!
+!> @author
+!> £ukasz Stanik
+!
+! DESCRIPTION: 
+!> The module provides sequential implementations
+!> of some mathematical functions.
+!
+! REVISION HISTORY:
+! 23 06 2018 - Initial version
+!------------------------------------------------------------------------------
+    
+module sequiential_lib
+    contains
+  !------------------------------------------------------------------------------
+  !> @author
+  !> £ukasz Stanik
+  !
+  ! DESCRIPTION: 
+  !> Multiplies two matrices and returns result in the `X` param.
+  !
+  !> @param[in] A First matrix
+  !> @param[in] B Second matrix
+  !> @param[out] X Result matrix
+  !> @param[out] status Status, 0 = success
+  !------------------------------------------------------------------------------
+     subroutine mult (A, B, X, status)
+        implicit none
+        
+        ! variables
+        real (kind = 8), intent(in) :: A(:,:) 
+        real (kind = 8), intent(in) :: B(:,:) 
+        real (kind = 8), intent(out) :: X(:,:)
+        
+        integer (kind = 4), intent(out) :: status
+        integer (kind = 4) :: Ar, Ac, Br, Bc, Xr, Xc
+        integer (kind = 4) :: i, j, k
+        
+        
+        ! checking dimensions condition
+        logical :: dim_condition
+        
+        Ar = size(A(:,1))
+        Ac = size(A(1,:))
+        Br = size(B(:,1))
+        Bc = size(B(1,:))
+        Xr = size(X(:,1))
+        Xc = size(X(1,:))
+        
+        dim_condition = (Ac .EQ. Br) .AND. (Ar .EQ. Xr) .AND. (Bc .EQ. Xc)
+        
+        ! returning with status = -1 if dim_condition is not true
+        if (.NOT. dim_condition) then
+            status = -1
+            return
+        end if
+        
+        ! multiplying itself     
+        do i = 1, Xr
+            do j = 1, Xc         
+                    X(i,j) = 0.d0
+                    do k = 1, Ac
+                        X(i,j) = X(i,j) + A(i,k) * B(k,j)
+                    end do
+            end do
+        end do
+
+        status = 0
+        
+    end subroutine mult
+    
+end module matrixMath
+        
