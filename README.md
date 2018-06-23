@@ -29,6 +29,7 @@ Po skompilowaniu mozna uruchomic program podajac rozmiar macierzy do przetworzen
 * mnozenia macierzy rownolegle
 * eliminacji Gaussa sekwencyjnie
 * eliminacji Gaussa rownolegle
+
 Podczas wykonania program obliczy czasy wykonywania poszczegolnych procedur. Wyniki **dopisze** do pliku tekstowego results.txt.
 
 W repozytorium znajduje sie rowniez prosta aplikacja napisana pythonie, ktora korzysta z procedur udostepnianych dzieki f2py przez sequential_lib.
