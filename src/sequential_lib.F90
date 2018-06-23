@@ -95,7 +95,10 @@ module sequiential_lib
     real ( kind = 8), intent(in) :: B(size,size)
     real ( kind = 8), intent(out) :: X(size,size)
     integer ( kind = 4), intent(out) :: status
-
+    
+    !f2py intent(in) :: A, B, size
+    !f2py intent(out) :: X, status
+    
     ! calling a mult_seq subroutine
     call mult_seq(A, B, X, status)
  
@@ -124,6 +127,8 @@ module sequiential_lib
         integer (kind = 8) :: I, J
         real (kind = 8) :: C
         
+        !f2py intent(in) :: A, X, N
+        !f2py intent(out) :: A, X
         
         ! algorithm
         do I = 1,N-1
