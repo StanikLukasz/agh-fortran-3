@@ -101,6 +101,43 @@ module sequiential_lib
  
   end subroutine mult_seq_explicit
 
+ !------------------------------------------------------------------------------
+  !> @author
+  !> Lukasz Stanik
+  !
+  ! DESCRIPTION: 
+  !> Provides a gauss elimination mechanism.
+  !>
+  !> @param[inout] A Matrix of coefficients
+  !> @param[inout] X Matrix of values
+  !> @param[in] N Size of the matrices
+  !------------------------------------------------------------------------------
+  
+   subroutine gauss_seq (A, X, N)
+        implicit none
+        
+        
+        ! variables
+        integer (kind = 8), intent(in) :: N
+        real (kind = 8), intent(inout) :: A(N,N), X(N)
+        
+        integer (kind = 8) :: I, J
+        real (kind = 8) :: C
+        
+        
+        ! algorithm
+        do I = 1,N
+            do J = 0,N
+                if (I .NE. J) then
+                    C = A(I, J+1) / A(I, I+1)
+                    A(:, J+1) = A(:, J+1) - C*A(:,I+1)
+                    X(J+1) = X(J+1) - C*X(I+1)
+                end if
+            end do
+        end do
+        
+    end subroutine gauss_seq
+  
 end module sequiential_lib
     
     
