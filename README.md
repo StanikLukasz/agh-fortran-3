@@ -8,8 +8,8 @@ http://home.agh.edu.pl/~macwozni/fort/projekt3.pdf
 
 ### Teoria
 
-https://pl.wikipedia.org/wiki/Mno%C5%BCenie_macierzy
-https://pl.wikipedia.org/wiki/Metoda_eliminacji_Gaussa
+* https://pl.wikipedia.org/wiki/Mno%C5%BCenie_macierzy
+* https://pl.wikipedia.org/wiki/Metoda_eliminacji_Gaussa
 
 ### Praktyka
 
@@ -31,6 +31,8 @@ Po skompilowaniu mozna uruchomic program podajac rozmiar macierzy do przetworzen
 * eliminacji Gaussa rownolegle
 Podczas wykonania program obliczy czasy wykonywania poszczegolnych procedur. Wyniki **dopisze** do pliku tekstowego results.txt.
 
+W repozytorium znajduje sie rowniez prosta aplikacja napisana pythonie, ktora korzysta z procedur udostepnianych dzieki f2py przez sequential_lib.
+
 #### Wyniki
 
 Ponizej przedstawiam wykresy zaleznosci czasu obliczen od rozmiaru przetwarzanych macierzy  (w zakresie [100, 1500] o skali liniowej).
@@ -38,11 +40,11 @@ Ponizej przedstawiam wykresy zaleznosci czasu obliczen od rozmiaru przetwarzanyc
 ##### Mnozenie macierzy
 ###### tabela pomiarow
 ![table](https://github.com/StanikLukasz/agh-fortran-3/blob/master/times/mult_table.PNG)
-###### wykres czasu od rozmiaru macierzy
+###### wykres czasu od rozmiaru macierzy - czas obliczeñ podany w sekundach
 ![chart](https://github.com/StanikLukasz/agh-fortran-3/blob/master/times/mult_chart.PNG)
 
 ##### Eliminacja Gaussa
 ###### tabela pomiarow
 ![chart](https://github.com/StanikLukasz/agh-fortran-3/blob/master/times/gauss_table.PNG)
-###### wykres czasu od rozmiaru macierzy
+###### wykres czasu od rozmiaru macierzy - czas obliczeñ podany w sekundach
 ![chart](https://github.com/StanikLukasz/agh-fortran-3/blob/master/times/gauss_chart.PNG)
