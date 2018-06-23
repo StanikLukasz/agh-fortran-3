@@ -76,11 +76,59 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a834d78e243124fb4b218d9e17e71c033"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecoarray__lib.html#a834d78e243124fb4b218d9e17e71c033">mult_coarr</a> (A, B, X, status)</td></tr>
 <tr class="memdesc:a834d78e243124fb4b218d9e17e71c033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies two matrices and returns result in the <code>X</code> param. Works with coarray to boost computings.  <a href="#a834d78e243124fb4b218d9e17e71c033">More...</a><br /></td></tr>
 <tr class="separator:a834d78e243124fb4b218d9e17e71c033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dbf310aeabc215161c4368152ea4e37"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacecoarray__lib.html#a1dbf310aeabc215161c4368152ea4e37">gauss_coarr</a> (A, X, N)</td></tr>
+<tr class="memdesc:a1dbf310aeabc215161c4368152ea4e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a gauss elimination mechanism. Works with coarray to boost computings.  <a href="#a1dbf310aeabc215161c4368152ea4e37">More...</a><br /></td></tr>
+<tr class="separator:a1dbf310aeabc215161c4368152ea4e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The module provides implementations of some mathematical functions using coarray. </p>
 <dl class="section author"><dt>Author</dt><dd>Lukasz Stanik </dd></dl>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a1dbf310aeabc215161c4368152ea4e37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dbf310aeabc215161c4368152ea4e37">&#9670;&nbsp;</a></span>gauss_coarr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine coarray_lib::gauss_coarr </td>
+          <td>(</td>
+          <td class="paramtype">real (kind = 8), dimension(n,n), intent(inout)&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real (kind = 8), dimension(n), intent(inout)&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer (kind = 8), intent(in)&#160;</td>
+          <td class="paramname"><em>N</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Provides a gauss elimination mechanism. Works with coarray to boost computings. </p>
+<dl class="section author"><dt>Author</dt><dd>Lukasz Stanik</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">A</td><td>Matrix of coefficients </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">X</td><td>Matrix of values </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>Max row number of the from-0-numbered matrices </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a834d78e243124fb4b218d9e17e71c033"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a834d78e243124fb4b218d9e17e71c033">&#9670;&nbsp;</a></span>mult_coarr()</h2>
 

@@ -9,7 +9,9 @@ The module provides implementations of some mathematical functions using coarray
 \begin{DoxyCompactItemize}
 \item 
 subroutine \mbox{\hyperlink{namespacecoarray__lib_a834d78e243124fb4b218d9e17e71c033}{mult\+\_\+coarr}} (A, B, X, status)
-\begin{DoxyCompactList}\small\item\em Multiplies two matrices and returns result in the {\ttfamily X} param. Works with coarray to boost computings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Multiplies two matrices and returns result in the {\ttfamily X} param. Works with coarray to boost computings. \end{DoxyCompactList}\item 
+subroutine \mbox{\hyperlink{namespacecoarray__lib_a1dbf310aeabc215161c4368152ea4e37}{gauss\+\_\+coarr}} (A, X, N)
+\begin{DoxyCompactList}\small\item\em Provides a gauss elimination mechanism. Works with coarray to boost computings. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -21,6 +23,28 @@ Lukasz Stanik
 
 
 \subsection{Function/\+Subroutine Documentation}
+\mbox{\Hypertarget{namespacecoarray__lib_a1dbf310aeabc215161c4368152ea4e37}\label{namespacecoarray__lib_a1dbf310aeabc215161c4368152ea4e37}} 
+\index{coarray\+\_\+lib@{coarray\+\_\+lib}!gauss\+\_\+coarr@{gauss\+\_\+coarr}}
+\index{gauss\+\_\+coarr@{gauss\+\_\+coarr}!coarray\+\_\+lib@{coarray\+\_\+lib}}
+\subsubsection{\texorpdfstring{gauss\+\_\+coarr()}{gauss\_coarr()}}
+{\footnotesize\ttfamily subroutine coarray\+\_\+lib\+::gauss\+\_\+coarr (\begin{DoxyParamCaption}\item[{real (kind = 8), dimension(n,n), intent(inout)}]{A,  }\item[{real (kind = 8), dimension(n), intent(inout)}]{X,  }\item[{integer (kind = 8), intent(in)}]{N }\end{DoxyParamCaption})}
+
+
+
+Provides a gauss elimination mechanism. Works with coarray to boost computings. 
+
+\begin{DoxyAuthor}{Author}
+Lukasz Stanik
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em A} & Matrix of coefficients \\
+\hline
+\mbox{\tt in,out}  & {\em X} & Matrix of values \\
+\hline
+\mbox{\tt in}  & {\em N} & Max row number of the from-\/0-\/numbered matrices \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{namespacecoarray__lib_a834d78e243124fb4b218d9e17e71c033}\label{namespacecoarray__lib_a834d78e243124fb4b218d9e17e71c033}} 
 \index{coarray\+\_\+lib@{coarray\+\_\+lib}!mult\+\_\+coarr@{mult\+\_\+coarr}}
 \index{mult\+\_\+coarr@{mult\+\_\+coarr}!coarray\+\_\+lib@{coarray\+\_\+lib}}
