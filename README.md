@@ -40,11 +40,13 @@ Ponizej przedstawiam wykresy zaleznosci czasu obliczen od rozmiaru przetwarzanyc
 ##### Mnozenie macierzy
 ###### tabela pomiarow
 ![table](https://github.com/StanikLukasz/agh-fortran-3/blob/master/times/mult_table.PNG)
-###### wykres czasu od rozmiaru macierzy - czas obliczeñ podany w sekundach
+###### wykres czasu od rozmiaru macierzy (czas obliczeñ podany w sekundach)
 ![chart](https://github.com/StanikLukasz/agh-fortran-3/blob/master/times/mult_chart.PNG)
 
 ##### Eliminacja Gaussa
 ###### tabela pomiarow
 ![chart](https://github.com/StanikLukasz/agh-fortran-3/blob/master/times/gauss_table.PNG)
-###### wykres czasu od rozmiaru macierzy - czas obliczeñ podany w sekundach
+###### wykres czasu od rozmiaru macierzy (czas obliczeñ podany w sekundach)
 ![chart](https://github.com/StanikLukasz/agh-fortran-3/blob/master/times/gauss_chart.PNG)
+
+Wyraznie widac skrocenie czasu obliczen dzieki wykorzystaniu rownoleglosci. Efekt ten jest jednak malo widoczny (a czasem nawet odwrotny!) w przypadku danych wejsciowych o bardzo malych rozmiarach.

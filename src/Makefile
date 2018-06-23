@@ -17,3 +17,10 @@ times: main
 	main 1300
 	main 1400
 	main 1500
+
+sequential_lib.so:
+	f2py -c sequential_lib.F90 -m sequential_lib
+
+app: sequential_lib.so
+	python app.py
+	
