@@ -58,9 +58,9 @@ module coarray_lib
         Xc = size(X(1,:))
         
         ! initializing coarray variables
-        allocate(buffer(width, Bc)[*])
-        
+          
         width = CEILING(real(Ar)/NUM_IMAGES())
+        allocate(buffer(width, Xc)[*])
         first_row = MIN(Ar, (THIS_IMAGE() - 1) * width) + 1
         last_row = MIN(Ar, THIS_IMAGE() * width)
         
@@ -75,14 +75,14 @@ module coarray_lib
         ! multiplying itself     
         do i = first_row, last_row
             do j = 1, Xc         
-                    X(i,j) = 0.d0
+                    buffer(i - first_row + 1,j) = 0.d0
                     do k = 1, Ac
-                        X(i - first_row + 1, j) = X(i - first_row + 1,j) + A(i,k) * B(k,j)
+                        buffer(i - first_row + 1, j) = buffer(i - first_row + 1,j) + A(i,k) * B(k,j)
                     end do
             end do
         end do
 
-        sync all
+        syncall()
         
         ! getting results together
         if (THIS_IMAGE() .EQ. 1) then
