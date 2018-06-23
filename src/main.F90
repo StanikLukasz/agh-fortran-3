@@ -4,7 +4,7 @@ program main
     implicit none
     
     ! variables
-    integer (kind = 4) :: status, N
+    integer (kind = 4) :: I, J, status, N
     real (kind = 8), dimension(:,:), allocatable :: A, B, X
     real (kind = 16) :: before, after ! for time measuring
     character (len=16) :: arg ! for getting from command line
@@ -51,6 +51,14 @@ program main
     
     syncall()
     
+    ! preparing the matrices for Gauss elimination
+    do I = 1, N
+        do J = 1, N
+            A(I,J) = I*N-J
+        end do
+        B(1,I) = I
+    end do
+    
     ! SEQUENTIAL - Gauss elimination
     if (THIS_IMAGE() .EQ. 1) then
         call CPU_TIME(before)
@@ -62,10 +70,29 @@ program main
     
     syncall()
     
+    ! preparing the matrices for Gauss elimination
+    do I = 1, N
+        do J = 1, N
+            A(I,J) = I*N-J
+        end do
+        B(1,I) = I
+    end do
     
+    ! COARRAY - Gauss elimination
+    call CPU_TIME(before)
+    call gauss_coarr(A,B,N-1)
+    call CPU_TIME(after)
     
+    if (THIS_IMAGE() .EQ. 1) then
+        write(19,*)"gauss_coarr:", NUM_IMAGES(), N, (after-before)
+    end if
     
-
+    syncall()
+    
+    deallocate(A)
+    deallocate(B)
+    deallocate(X)
+    
 end program main
     
     

@@ -126,8 +126,8 @@ module sequiential_lib
         
         
         ! algorithm
-        do I = 1,N
-            do J = 0,N
+        do I = 1,N-1
+            do J = 0,N-1
                 if (I .NE. J) then
                     C = A(I, J+1) / A(I, I+1)
                     A(:, J+1) = A(:, J+1) - C*A(:,I+1)

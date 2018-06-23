@@ -107,10 +107,9 @@ module coarray_lib
   !> Provides a gauss elimination mechanism.
   !> Works with coarray to boost computings.
   !
-  !> @param[in] A First matrix
-  !> @param[in] B Second matrix
-  !> @param[out] X Result matrix
-  !> @param[out] status Status, 0 = success
+  !> @param[inout] A Matrix of coefficients
+  !> @param[inout] X Matrix of values
+  !> @param[in] N Max row number of the from-0-numbered matrices
   !------------------------------------------------------------------------------
     subroutine gauss_coarr (A, X, N)
         implicit none
@@ -124,8 +123,8 @@ module coarray_lib
         integer (kind = 8) :: I, J
         real (kind = 8) :: C
         
-        allocate(cA(N,N)[*])
-        allocate(cX(N)[*])
+        allocate(cA(0:N,0:N)[*])
+        allocate(cX(0:N)[*])
 
         if (THIS_IMAGE() .EQ. 1) then
             cA(:,:)[1] = A(:,:)
@@ -134,8 +133,8 @@ module coarray_lib
         
         
         ! algorithm
-        do I = 1,N
-            do J = THIS_IMAGE()-1, N, NUM_IMAGES()
+        do I = 1,N-1
+            do J = THIS_IMAGE()-1, N-1, NUM_IMAGES()
                 if (I .NE. J) then
                     C = cA(I, J+1) / cA(I, I+1)
                     cA(:, J+1) = cA(:, J+1) - C*cA(:,I+1)
